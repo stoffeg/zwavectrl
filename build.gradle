@@ -1,0 +1,27 @@
+group 'com.elcris.iot.zwave'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+mainClassName = "com.elcris.iot.zwave.ZWaveCtrl"
+
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.*')
+    //compile group: 'com.whizzosoftware', name: 'wzwave', version: '0.0.3'
+    runtime group: 'io.netty', name: 'netty-codec', version: '4.0.25.Final'
+    runtime group: 'io.netty', name: 'netty-transport', version: '4.0.25.Final'
+    runtime group: 'io.netty', name: 'netty-transport-rxtx', version: '4.0.25.Final'
+    compile group: 'org.slf4j', name: 'slf4j-simple', version:'1.7.18'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
